@@ -6,8 +6,8 @@ import actions from "../../../common/actions.js";
 import moment from "moment";
 
 export default function MessageModal() {
-  const { dispatch } = useContext(StateContext);
-  const [message, setMessage] = useState();
+  const { state, dispatch } = useContext(StateContext); //added state parameter to context
+  const [message, setMessage] = useState(state.editMessage?.message); // if message has been edited save to state
 
   const dateIn10min = moment().add(10, "minutes");
 
@@ -61,6 +61,7 @@ export default function MessageModal() {
         message,
         date,
         time,
+        id: state.editMessage && state.editMessage.id, // added id to save message
       },
     });
     closeMessageModal();
@@ -70,16 +71,11 @@ export default function MessageModal() {
   };
   return (
     <Fragment>
-      <div
-        data-testid="dialog-background"
-        onClick={closeMessageModal}
-      ></div>
+      <div data-testid="dialog-background" onClick={closeMessageModal}></div>
       <dialog open>
         <div>
           <h3>{texts["message-modal-title"]}</h3>
-          <button
-            data-testid="close-button"
-            onClick={closeMessageModal}>
+          <button data-testid="close-button" onClick={closeMessageModal}>
             {texts["close"]}
           </button>
         </div>
@@ -93,9 +89,7 @@ export default function MessageModal() {
             onChange={handleInputChange}
           />
         </div>
-        <div
-          data-error={charactersLeft < 0}
-        >
+        <div data-error={charactersLeft < 0}>
           <p>{charactersLeft}</p>
         </div>
         <div>

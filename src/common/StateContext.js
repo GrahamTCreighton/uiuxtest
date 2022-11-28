@@ -39,11 +39,19 @@ function StateProvider({ children }) {
       },
       [actions.OPEN_MESSAGE_MODAL]: () => ({
         ...state,
+        editMessage: undefined,
         showMessageModal: true,
       }),
       [actions.CLOSE_MESSAGE_MODAL]: () => ({
         ...state,
+        editMessage: undefined,
         showMessageModal: false,
+      }),
+      // Edit message action that takes in messageId parameter which opens twitter modal.
+      [actions.EDIT_MESSAGE]: (messageId) => ({
+        ...state,
+        editMessage: state.messages[messageId],
+        showMessageModal: true,
       }),
     };
     return cases[action.type](action.data);

@@ -37,8 +37,17 @@ export default function MessageList({ messages }) {
                 data-testid="message-list-delete-button"
                 onClick={() =>
                   dispatch({ type: actions.DELETE_MESSAGE, data: id })
-                }>
+                }
+              >
                 {texts["delete"]}
+              </button>
+              <button // created button that takes in edit message on click
+                data-testid="message-list-edit-button"
+                onClick={() =>
+                  dispatch({ type: actions.EDIT_MESSAGE, data: id })
+                }
+              >
+                {texts["edit"]}
               </button>
             </div>
           </li>
