@@ -1,0 +1,33 @@
+export {
+  default as calendar,
+  ReactComponent as Calendar,
+} from "./iconsSVG/calendar.svg";
+export {
+  default as clock,
+  ReactComponent as Clock,
+} from "./iconsSVG/clock.svg";
+export {
+  default as close,
+  ReactComponent as Close,
+} from "./iconsSVG/close-lg.svg";
+export {
+  default as danger,
+  ReactComponent as Danger,
+} from "./iconsSVG/danger.svg";
+export { default as edit, ReactComponent as Edit } from "./iconsSVG/edit.svg";
+export {
+  default as globe,
+  ReactComponent as Globe,
+} from "./iconsSVG/globe.svg";
+export {
+  default as trash,
+  ReactComponent as Trash,
+} from "./iconsSVG/trash.svg";
+export {
+  default as tweets,
+  ReactComponent as Tweets,
+} from "./iconsSVG/tweets.svg";
+export {
+  default as twitter,
+  ReactComponent as Twitter,
+} from "./iconsSVG/twitter.svg";
