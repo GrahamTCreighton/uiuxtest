@@ -72,6 +72,8 @@ const brandPalette = {
   accentAlpha20: "rgba(254, 96, 77, 0.2)",
   accentAlpha10: "rgba(254, 96, 77, 0.1)",
   accentAlpha5: "rgba(254, 96, 77, 0.05)",
+
+  light: "#FFFFFF",
 };
 
 export default brandPalette;
