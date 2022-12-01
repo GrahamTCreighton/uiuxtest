@@ -7,7 +7,7 @@ import { Tweets } from "../common/icons/icons";
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ theme, size, ...props }) => {
+export const Button = ({ theme, size, state, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
     fontWeight: 500,
@@ -61,6 +61,13 @@ export const Button = ({ theme, size, ...props }) => {
     },
   };
 
+  const stateTheme = {
+    default: {},
+    hover: {},
+    focus: {},
+    disabled: {},
+  };
+
   return (
     <button
       type="button"
@@ -68,6 +75,7 @@ export const Button = ({ theme, size, ...props }) => {
         ...mainCss,
         ...themes[theme],
         ...cssSizes[size],
+        ...stateTheme[state],
       }}
       {...props}
     />
@@ -76,14 +84,6 @@ export const Button = ({ theme, size, ...props }) => {
 
 Button.propTypes = {
   /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
-  /**
    * How large should the button be?
    */
   size: PropTypes.oneOf(["small", "default", "large"]),
@@ -91,6 +91,10 @@ Button.propTypes = {
    * Button contents
    */
   onClick: PropTypes.func,
+  /**
+   * Whate state is the button in?
+   */
+  state: PropTypes.oneOf(["default", "hover", "focus", "disabled"]),
 };
 
 Button.defaultProps = {
