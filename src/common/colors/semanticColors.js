@@ -1,6 +1,6 @@
 //all alpha colors need revision to check if they work
 
-const SemanticPalette = {
+const semanticPalette = {
   danger: "#e50a1f",
   dangerShade10: "#ce091c",
   dangerTint80: "#FACED2",
@@ -23,4 +23,4 @@ const SemanticPalette = {
   SuccessAlpha20: "rgba(0, 214, 134, 0.2)",
 };
 
-export default SemanticPalette;
+export default semanticPalette;

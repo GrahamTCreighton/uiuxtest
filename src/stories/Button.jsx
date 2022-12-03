@@ -1,13 +1,13 @@
 /** @jsxImportSource @emotion/react */
-import React from "react";
-import PropTypes from "prop-types";
-import BrandPalette from "../common/colors/brandColors";
-import SemanticPalette from "../common/colors/semanticColors";
+import React, { useState } from "react";
+import PropTypes, { func } from "prop-types";
 import { Tweets } from "../common/icons/icons";
+import brandPalette from "../common/colors/brandColors";
+import { FillPrimary } from "./Button.stories";
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ theme, size, state, ...props }) => {
+export const Button = ({ theme, size, onClick, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
     fontWeight: 500,
@@ -23,8 +23,25 @@ export const Button = ({ theme, size, state, ...props }) => {
 
   const themes = {
     FillPrimary: {
-      color: BrandPalette.light,
-      backgroundColor: BrandPalette.primary,
+      color: brandPalette.light,
+      backgroundColor: brandPalette.primary,
+      "&:hover": { backgroundColor: brandPalette.primaryShade10 },
+    },
+    Disabled: {
+      color: brandPalette.darkAlpha20,
+      backgroundColor: "transparent",
+    },
+    Hover: {
+      color: brandPalette.light,
+      backgroundColor: brandPalette.primaryShade10,
+    }, //Focus Border not working.
+    Focus: {
+      color: brandPalette.light,
+      backgroundColor: brandPalette.primaryShade10,
+      borderStyle: "solid",
+      borderWidth: "3px",
+      borderColor: brandPalette.primaryAlpha20,
+      backgroundClip: "padding-box",
     },
   };
 
@@ -61,13 +78,6 @@ export const Button = ({ theme, size, state, ...props }) => {
     },
   };
 
-  const stateTheme = {
-    default: {},
-    hover: {},
-    focus: {},
-    disabled: {},
-  };
-
   return (
     <button
       type="button"
@@ -75,7 +85,6 @@ export const Button = ({ theme, size, state, ...props }) => {
         ...mainCss,
         ...themes[theme],
         ...cssSizes[size],
-        ...stateTheme[state],
       }}
       {...props}
     />
@@ -83,6 +92,7 @@ export const Button = ({ theme, size, state, ...props }) => {
 };
 
 Button.propTypes = {
+  theme: PropTypes.oneOf(["FillPrimary", "Disabled", "Hover", "Focus"]),
   /**
    * How large should the button be?
    */
@@ -91,15 +101,10 @@ Button.propTypes = {
    * Button contents
    */
   onClick: PropTypes.func,
-  /**
-   * Whate state is the button in?
-   */
-  state: PropTypes.oneOf(["default", "hover", "focus", "disabled"]),
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
+  theme: "FillPrimary",
   size: "default",
   onClick: undefined,
 };

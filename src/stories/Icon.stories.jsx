@@ -1,23 +1,23 @@
 import React from "react";
 import { Tweets } from "../common/icons/icons";
-import { Button } from "./Button";
+import { Icon } from "./Icon";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Design System/Controls/Button",
-  component: Button,
+  title: "Design System/Controls/Icon",
+  component: Icon,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    size: { options: ["small", "default", "large"] },
+    size: { options: ["small", "default"] },
   },
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => (
-  <Button {...args}>
+  <Icon {...args}>
     <Tweets />
     Sample
-  </Button>
+  </Icon>
 );
 
 export const FillPrimary = Template.bind({});
