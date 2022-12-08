@@ -1,6 +1,6 @@
 import React from "react";
-import { Tweets } from "../common/icons/icons";
-import { Button } from "./Button";
+import { Tweets } from "common/icons";
+import { Button } from "components/Button";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -15,9 +15,8 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => (
   <Button {...args}>
-    <Tweets />
-    Sample
-  </Button>
+    <Tweets /> Sample
+  </Button>\
 );
 
 export const FillPrimary = Template.bind({});
@@ -28,12 +27,4 @@ FillPrimary.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   theme: "Disabled",
-};
-export const Hover = Template.bind({});
-Hover.args = {
-  theme: "Hover",
-};
-export const Focus = Template.bind({});
-Focus.args = {
-  theme: "Focus",
 };
