@@ -1,47 +1,35 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from "react";
 import PropTypes, { func } from "prop-types";
-import { Tweets } from "../common/icons/icons";
-import brandPalette from "../common/colors/brandColors";
-import { FillPrimary } from "./Button.stories";
+import brandPalette from "common/colors/brandColors";
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ theme, size, onClick, ...props }) => {
+export const Button = ({ theme, size, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
     fontWeight: 500,
-    display: "flex",
-    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     border: "0px",
-    flex: "none",
-    order: 0,
-    flexGrow: 0,
+    display: "flex",
+    cursor: "pointer",
   };
 
   const themes = {
     FillPrimary: {
       color: brandPalette.light,
       backgroundColor: brandPalette.primary,
-      "&:hover": { backgroundColor: brandPalette.primaryShade10 },
+      "&:hover": {
+        backgroundColor: brandPalette.primaryShade10,
+      },
+      "&:active, &:focus-visible": {
+        backgroundColor: brandPalette.primaryShade10,
+        outline: `3px solid ${brandPalette.primaryAlpha20}`,
+      },
     },
     Disabled: {
       color: brandPalette.darkAlpha20,
       backgroundColor: "transparent",
-    },
-    Hover: {
-      color: brandPalette.light,
-      backgroundColor: brandPalette.primaryShade10,
-    }, //Focus Border not working.
-    Focus: {
-      color: brandPalette.light,
-      backgroundColor: brandPalette.primaryShade10,
-      borderStyle: "solid",
-      borderWidth: "3px",
-      borderColor: brandPalette.primaryAlpha20,
-      backgroundClip: "padding-box",
     },
   };
 
@@ -81,18 +69,14 @@ export const Button = ({ theme, size, onClick, ...props }) => {
   return (
     <button
       type="button"
-      css={{
-        ...mainCss,
-        ...themes[theme],
-        ...cssSizes[size],
-      }}
+      css={[mainCss, themes[theme], cssSizes[size]]}
       {...props}
     />
   );
 };
 
 Button.propTypes = {
-  theme: PropTypes.oneOf(["FillPrimary", "Disabled", "Hover", "Focus"]),
+  theme: PropTypes.oneOf(["FillPrimary", "Disabled"]),
   /**
    * How large should the button be?
    */
