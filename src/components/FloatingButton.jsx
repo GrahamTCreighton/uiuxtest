@@ -47,11 +47,9 @@ FloatingButton.propTypes = {
   /**
    * Button contents
    */
-  onClick: PropTypes.func,
 };
 
 FloatingButton.defaultProps = {
   theme: "FillPrimary",
   size: "default",
-  onClick: undefined,
 };

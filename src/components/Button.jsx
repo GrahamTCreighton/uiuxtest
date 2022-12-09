@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import PropTypes, { func } from "prop-types";
+import PropTypes from "prop-types";
 import brandPalette from "common/colors/brandColors";
 /**
  * Primary UI component for user interaction
@@ -84,11 +84,9 @@ Button.propTypes = {
   /**
    * Button contents
    */
-  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   theme: "FillPrimary",
   size: "default",
-  onClick: undefined,
 };

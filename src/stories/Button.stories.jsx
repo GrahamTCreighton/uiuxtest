@@ -16,7 +16,7 @@ export default {
 const Template = (args) => (
   <Button {...args}>
     <Tweets /> Sample
-  </Button>\
+  </Button>
 );
 
 export const FillPrimary = Template.bind({});
