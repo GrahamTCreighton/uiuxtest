@@ -5,7 +5,7 @@ import semanticPalette from "../common/colors/semanticColors";
 /**
  * Primary UI component for user interaction
  */
-export const Input = ({ theme, size, ...props }) => {
+export const InputForm = ({ theme, size, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
     fontWeight: 400,
@@ -42,13 +42,13 @@ export const Input = ({ theme, size, ...props }) => {
     },
   };
 
-  return <input type="button" css={[mainCss, themes[theme]]} {...props} />;
+  return <inputForm css={[mainCss, themes[theme]]} {...props} />;
 };
 
-Input.propTypes = {
+InputForm.propTypes = {
   theme: PropTypes.oneOf(["Empty", "Default", "Error"]),
 };
 
-Input.defaultProps = {
+InputForm.defaultProps = {
   theme: "Error",
 };
