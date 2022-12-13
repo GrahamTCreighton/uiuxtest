@@ -24,6 +24,11 @@ export const Header = ({ size, ...props }) => {
       fontSize: "64px",
       letterSpacing: "-1.5px",
     },
+    H3: {
+      fontWeight: "500",
+      fontSize: "48px",
+      letterSpacing: "-1px",
+    },
     H4: {
       fontWeight: "500",
       fontSize: "32px",
@@ -41,6 +46,12 @@ export const Header = ({ size, ...props }) => {
       fontSize: "64px",
       letterSpacing: "-1.5px",
     },
+    HighlightH3: {
+      fontStyle: "italic",
+      fontWeight: "400",
+      fontSize: "48px",
+      letterSpacing: "-1px",
+    },
     HighlightH4: {
       fontStyle: "italic",
       fontWeight: "400",
@@ -56,9 +67,11 @@ Header.propTypes = {
   size: PropTypes.oneOf([
     "H1",
     "H2",
+    "H3",
     "H4",
     "HighlightH1",
     "HighlightH2",
+    "HighlightH3",
     "HighlightH4",
   ]),
 };

@@ -2,10 +2,11 @@
 import PropTypes from "prop-types";
 import brandPalette from "common/colors/brandColors";
 import semanticPalette from "../common/colors/semanticColors";
+import { Danger } from "common/icons";
 /**
  * Primary UI component for user interaction
  */
-export const InputForm = ({ theme, size, ...props }) => {
+export const InputForm = ({ theme, size, errorMessage, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
     fontWeight: 400,
@@ -42,13 +43,26 @@ export const InputForm = ({ theme, size, ...props }) => {
     },
   };
 
-  return <inputForm css={[mainCss, themes[theme]]} {...props} />;
+  return (
+    <div>
+      <input css={[mainCss, themes[theme]]} {...props} />
+      {errorMessage ? (
+        <div>
+          <Danger />
+          {errorMessage}
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 InputForm.propTypes = {
   theme: PropTypes.oneOf(["Empty", "Default", "Error"]),
+  placeholder: PropTypes.string,
+  errorMessage: PropTypes.string,
 };
 
 InputForm.defaultProps = {
   theme: "Error",
+  placeholder: "Placeholder",
 };

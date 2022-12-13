@@ -4,7 +4,7 @@ import { IconButton } from "components/IconButton";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Design System/Controls/IconButton",
+  title: "Design System/Components & Assets/IconButton",
   component: IconButton,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {

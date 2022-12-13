@@ -4,7 +4,7 @@ import { FloatingButton } from "components/FloatingButton";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Design System/Controls/Floating Button",
+  title: "Design System/Components & Assets/Floating Button",
   component: FloatingButton,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
@@ -19,8 +19,8 @@ const Template = (args) => (
   </FloatingButton>
 );
 
-export const IconButton = Template.bind({});
+export const IconButtonSample = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-IconButton.args = {
+IconButtonSample.args = {
   size: "default",
 };
