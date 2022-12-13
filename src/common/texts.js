@@ -1,6 +1,7 @@
 // Edited texts to match given user interface
 const english = {
-  "empty-list-title": "Plan your tweets ahead.",
+  "empty-list-title":
+    'Plan your tweets <span style="color:#FE604D; font-style: italic; font-family: IBM Plex Serif;">ahead</span>.',
   "add-message": "New Tweet",
   "empty-list-description":
     "Add tweets to discover the full potential of this demo app.",

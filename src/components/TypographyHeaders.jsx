@@ -4,12 +4,9 @@ import brandPalette from "common/colors/brandColors";
 /**
  * Primary UI component for user interaction
  */
-export const Header = ({ size, ...props }) => {
+export const Header = ({ size, as, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
     color: brandPalette.dark,
   };
 
@@ -35,24 +32,28 @@ export const Header = ({ size, ...props }) => {
       letterSpacing: "-0.5px",
     },
     HighlightH1: {
+      fontFamily: "IBM Plex Serif",
       fontStyle: "italic",
       fontWeight: "400",
       fontSize: "80px",
       letterSpacing: "-2px",
     },
     HighlightH2: {
+      fontFamily: "IBM Plex Serif",
       fontStyle: "italic",
       fontWeight: "400",
       fontSize: "64px",
       letterSpacing: "-1.5px",
     },
     HighlightH3: {
+      fontFamily: "IBM Plex Serif",
       fontStyle: "italic",
       fontWeight: "400",
       fontSize: "48px",
       letterSpacing: "-1px",
     },
     HighlightH4: {
+      fontFamily: "IBM Plex Serif",
       fontStyle: "italic",
       fontWeight: "400",
       fontSize: "32px",
@@ -60,7 +61,8 @@ export const Header = ({ size, ...props }) => {
     },
   };
 
-  return <header css={[mainCss, cssSizes[size]]} {...props} />;
+  const As = as ?? "h1";
+  return <As css={[mainCss, cssSizes[size]]} {...props} />;
 };
 
 Header.propTypes = {
@@ -74,8 +76,10 @@ Header.propTypes = {
     "HighlightH3",
     "HighlightH4",
   ]),
+  as: PropTypes.oneOf(["h1", "h2", "h3", "h4"]),
 };
 
 Header.defaultProps = {
   size: "H1",
+  as: "h1",
 };

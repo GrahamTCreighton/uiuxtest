@@ -7,7 +7,7 @@ import brandPalette from "common/colors/brandColors";
 export const Button = ({ theme, size, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
-    fontWeight: 500,
+    fontWeight: 400,
     justifyContent: "center",
     alignItems: "center",
     border: "0px",

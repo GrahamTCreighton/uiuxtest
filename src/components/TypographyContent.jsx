@@ -1,16 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import PropTypes from "prop-types";
 import brandPalette from "common/colors/brandColors";
-import { jsx } from "@emotion/react";
 /**
  * Primary UI component for user interaction
  */
 export const Content = ({ size, as, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
     color: brandPalette.dark,
   };
 
@@ -36,11 +32,8 @@ export const Content = ({ size, as, ...props }) => {
       letterSpacing: "0.1px",
     },
   };
-
-  return jsx(as ?? "p", {
-    css: [mainCss, cssSizes[size]],
-    ...props,
-  });
+  const As = as;
+  return <As css={[mainCss, cssSizes[size]]} {...props} />;
 };
 
 Content.propTypes = {
@@ -50,10 +43,10 @@ Content.propTypes = {
     "bodyMedium",
     "bodySemiBold",
   ]),
-  as: PropTypes.string,
+  as: PropTypes.oneOf(["div", "span", "p"]),
 };
 
 Content.defaultProps = {
   size: "subheader",
-  as: "Sample",
+  as: "p",
 };

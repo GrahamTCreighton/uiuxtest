@@ -4,6 +4,10 @@ import CONSTANTS from "../../../common/constants.js";
 import texts from "../../../common/texts.js";
 import actions from "../../../common/actions.js";
 import moment from "moment";
+import { Content } from "components/TypographyContent.jsx";
+import { IconButton } from "components/IconButton.jsx";
+import { InputForm } from "components/Input.jsx";
+import { Button } from "components/Button.jsx";
 
 export default function MessageModal() {
   const { state, dispatch } = useContext(StateContext); //added state parameter to context
@@ -74,13 +78,19 @@ export default function MessageModal() {
       <div data-testid="dialog-background" onClick={closeMessageModal}></div>
       <dialog open>
         <div>
-          <h3>{texts["message-modal-title"]}</h3>
-          <button data-testid="close-button" onClick={closeMessageModal}>
+          <Content as="div" size="bodyMedium">
+            {texts["message-modal-title"]}
+          </Content>
+          <IconButton
+            iconName="Close"
+            data-testid="close-button"
+            onClick={closeMessageModal}
+          >
             {texts["close"]}
-          </button>
+          </IconButton>
         </div>
         <div>
-          <textarea
+          <InputForm
             type="text"
             name="message"
             value={message}
@@ -90,17 +100,21 @@ export default function MessageModal() {
           />
         </div>
         <div data-error={charactersLeft < 0}>
-          <p>{charactersLeft}</p>
+          <Content as="p" size="subheader">
+            {charactersLeft}
+          </Content>
         </div>
         <div>
           <div>
-            <h4>{texts["message-modal-schedule"]}</h4>
+            <Content as="p" size="subheader">
+              {texts["message-modal-schedule"]}
+            </Content>
             <p>{`Timezone: ${
               Intl.DateTimeFormat().resolvedOptions().timeZone
             }`}</p>
           </div>
           <div>
-            <input
+            <InputForm
               type="date"
               name="date"
               data-error={dateTimeValidationError}
@@ -109,7 +123,7 @@ export default function MessageModal() {
               min={moment().format(CONSTANTS.DATEHTMLFORMAT)}
               onChange={handleInputChange}
             />
-            <input
+            <InputForm
               type="time"
               name="time"
               data-error={dateTimeValidationError}
@@ -132,14 +146,14 @@ export default function MessageModal() {
           >
             {texts["cancel"]}
           </button>
-          <button
+          <Button
             disabled={validationError}
             type="save"
             data-testid="message-modal-save"
             onClick={saveMessage}
           >
             {texts["save"]}
-          </button>
+          </Button>
         </div>
       </dialog>
     </Fragment>
