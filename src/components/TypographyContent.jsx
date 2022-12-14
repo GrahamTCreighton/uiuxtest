@@ -8,6 +8,7 @@ export const Content = ({ size, as, ...props }) => {
   const mainCss = {
     fontFamily: "IBM Plex Sans",
     color: brandPalette.dark,
+    margin: "0px",
   };
 
   const cssSizes = {

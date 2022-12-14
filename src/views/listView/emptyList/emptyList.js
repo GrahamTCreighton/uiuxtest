@@ -14,15 +14,13 @@ export default function EmptyList() {
     <Fragment>
       <div
         css={{
-          width: "590px",
-          height: "314px",
+          width: "50%",
           top: "297px",
-          left: "425px",
-          padding: "16px,24px,24px,24px",
-          gap: "16px",
+          left: "497px",
           display: "flex",
           felxDirection: "column",
-          alignItems: "flex-start",
+          alignItems: "center",
+          justifyContent: "center",
           position: "absolute",
         }}
       >
@@ -36,58 +34,22 @@ export default function EmptyList() {
               left: "24px",
               width: "542px",
               height: "160px",
-              lineHeight: "80px",
-              flex: "none",
-              order: "0",
               alignSelf: "stretch",
-              flexGrow: "0",
             }}
           />
           <div
             css={{
-              top: "192px",
-              left: "24px",
-              gap: "32px",
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              padding: "0px",
-              width: "542px",
-              Height: "98px",
-              flex: "none",
-              order: "1",
               alignSelf: "stretch",
-              flexGrow: "0",
+              lineHeight: "64px",
             }}
           >
-            <Content
-              as="div"
-              size="subheader"
-              css={{
-                width: "542px",
-                height: "26px",
-                lineHeight: "26px",
-                flex: "none",
-                order: "0",
-                alignSelf: "stretch",
-                flexGrow: "0",
-              }}
-            >
+            <Content as="div" size="subheader">
               {texts["empty-list-description"]}
             </Content>
-          </div>
-          <div>
             <Button
-              css={{
-                top: "58px",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "flex-start",
-                borderRadius: "45px",
-                flex: "none",
-                order: "1",
-                flexGrow: "0",
-              }}
               data-testid="add-message"
               onClick={() => dispatch({ type: actions.OPEN_MESSAGE_MODAL })}
             >

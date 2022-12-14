@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { Fragment, useState, useContext } from "react";
 import { StateContext } from "../../../common/StateContext.js";
 import CONSTANTS from "../../../common/constants.js";
@@ -76,11 +77,20 @@ export default function MessageModal() {
   return (
     <Fragment>
       <div data-testid="dialog-background" onClick={closeMessageModal}></div>
-      <dialog open>
+      <dialog
+        open
+        css={{
+          width: "448px",
+          radius: "4px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          padding: "0px",
+          position: "relative",
+          height: "341px",
+        }}
+      >
         <div>
-          <Content as="div" size="bodyMedium">
-            {texts["message-modal-title"]}
-          </Content>
           <IconButton
             iconName="Close"
             data-testid="close-button"
@@ -88,6 +98,17 @@ export default function MessageModal() {
           >
             {texts["close"]}
           </IconButton>
+          <Content as="div" size="bodyMedium">
+            {texts["message-modal-title"]}
+          </Content>
+          <Button
+            disabled={validationError}
+            type="save"
+            data-testid="message-modal-save"
+            onClick={saveMessage}
+          >
+            {texts["save"]}
+          </Button>
         </div>
         <div>
           <InputForm
@@ -109,11 +130,6 @@ export default function MessageModal() {
             <Content as="p" size="subheader">
               {texts["message-modal-schedule"]}
             </Content>
-            <p>{`Timezone: ${
-              Intl.DateTimeFormat().resolvedOptions().timeZone
-            }`}</p>
-          </div>
-          <div>
             <InputForm
               type="date"
               name="date"
@@ -131,7 +147,11 @@ export default function MessageModal() {
               value={time}
               onChange={handleInputChange}
             />
+            <p>{`Timezone: ${
+              Intl.DateTimeFormat().resolvedOptions().timeZone
+            }`}</p>
           </div>
+          <div></div>
         </div>
         <div>
           <p>
@@ -146,14 +166,6 @@ export default function MessageModal() {
           >
             {texts["cancel"]}
           </button>
-          <Button
-            disabled={validationError}
-            type="save"
-            data-testid="message-modal-save"
-            onClick={saveMessage}
-          >
-            {texts["save"]}
-          </Button>
         </div>
       </dialog>
     </Fragment>
